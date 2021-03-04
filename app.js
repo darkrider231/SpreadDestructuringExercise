@@ -6,11 +6,11 @@ const mcuShows = ["The Falcon And The Winter Soldier", "WandaVision"];
 const starWarsShows = ["The Mandalorian", "The Clone Wars"];
 
 // 1c
-const disneyPlusShows = {
-    mcuShows,
-    starWarsShows,
-    anotherShow: "Muppets Now"
-};
+const disneyPlusShows = [
+    ...mcuShows,
+    ...starWarsShows,
+    "Muppets Now"
+];
 
 // 1d
 console.log(disneyPlusShows);
@@ -25,28 +25,28 @@ const netflixMovies = {
 const disneyPlusMovies = {
     musical: `Hamilton`,
     drama: `Togo`
-}
+};
 
 // 2c
 const streamingMovies = {
-    ...netflixMovies,
-    
     ...disneyPlusMovies,
+    
+    ...netflixMovies,
     comedy: `Shazam!`
-}
+};
 
 // 2d
 console.log(streamingMovies);
 
 // 3a
-const disneyJunior = {
+const disneyJunior = [
 
-    pj: "PJ Masks",
-    jake: "Jake and the Neverland Pirates"
-};
+    "PJ Masks",
+    "Jake and the Neverland Pirates"
+];
 
 // 3b
-const{pj, jake} = disneyJunior;
+const[pj, jake] = disneyJunior;
 // 3c
 console.log(pj, jake);
 
@@ -57,10 +57,10 @@ const avengers = {
 };
 
 // 4b
-const {captainAmerica: captainA, theHulk: theHulkA} = avengers;
+const {captainAmerica, theHulk} = avengers;
 
 // 4c
-console.log(captainA, theHulkA);
+console.log(captainAmerica, theHulk);
 
 // 4d
 const moreAvengers = {
@@ -70,10 +70,10 @@ const moreAvengers = {
 };
 
 // 4e
-const {blackWidow: nat, hawkeye: others1, ironMan: others2} = moreAvengers;
+const {blackWidow: nat, ...others} = moreAvengers;
 
 // 4f
-console.log(nat, others1, others2);
+console.log(nat, others);
 
 // BONUS
 const bonus = {
@@ -81,3 +81,17 @@ const bonus = {
     second: [4, 5, 6],
     third: [7, 8, 9]
   };
+
+// 5a
+const all = [
+    ...bonus.first,
+    ...bonus.second,
+    ...bonus.third
+];
+console.log(all);
+
+// 5b 
+const [one, two, three] = bonus.first;
+const [four, five, six] = bonus.second;
+const [seven, eight, nine] = bonus.third;
+
